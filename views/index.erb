@@ -1,34 +1,38 @@
-<h1>Hello, how you doin'?!</h1>
-<h1>Enter your name!</h1>
-<form action="details" method="post">
-  <label for="name">
-    Name
-  <input type="text" name="name">
-</label>
-</form>
-<h1>Enter your birthday!</h1>
-<form action="details" method="post">
-  <label for="day">
-    Day
-  <input type="text" name="day">
-  </label>
-  <label for="month">
-    Month
-  </label>
-  <select name="month" id="month_selection">
-   <option value="">Month</option>
-   <option value="1">Jan</option>
-   <option value="2">Feb</option>
-   <option value="3">Mar</option>
-   <option value="4">Apr</option>
-   <option value="5">May</option>
-   <option value="6">Jun</option>
-   <option value="7">Jul</option>
-   <option value="8">Aug</option>
-   <option value="9">Sep</option>
-   <option value="10">Oct</option>
-   <option value="11">Nov</option>
-   <option value="12">Dec</option>
-</select>
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Hello, how you doin'?</h1>
+        <form action="/details" method="post">
+          <label for="name">Enter your name!</label><br>
+          <input value="Name" name="name" type="text"><br>
+          <p>Enter your birthday!</p>
+          <label for="date">day:</label>
+          <input type="text" name="date" id="date">
+          <label for="month">month:</label>
+          <select name="month">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">May</option>
+            <option value="7">May</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select><br>
+          <input type="submit" value="Go!">
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>

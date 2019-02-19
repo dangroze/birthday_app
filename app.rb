@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'time_difference'
 
 class Birthday < Sinatra::Base
 
@@ -10,25 +11,21 @@ class Birthday < Sinatra::Base
 
   post "/details" do
     session[:name] = params[:name]
-    session[:day] = params[:day]
+    session[:date] = params[:date]
     session[:month] = params[:month]
     redirect '/play'
   end
 
   get '/play' do
     @name = session[:name]
-    @day = session[:day]
+    @date = session[:date]
     @month = session[:month]
 
-    @day = @day.to_i
-    @month = @month.to_i
-
-    start_date = DateTime.now
-    end_date = DateTime.new(DateTime.now.year, @month, @day)
-    if start_date > end_date
-      end_date = DateTime.new(DateTime.now.year + 1, @month, @day)
-    end
-    @difference = (start_date..end_date).count
+    @time = Time.new
+    @birthday = Time.new(2019, @month, @date)
+    @month_now = @time.month
+    @day = @time.day
+    @difference = (TimeDifference.between(@time, @birthday).in_days).ceil
 
     erb(:play)
   end

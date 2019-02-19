@@ -1,5 +1,23 @@
-<% if @difference == 0 %>
-Happy Birthday <%= @name %> !
-<% else %>
-Your birthday will be in <%= @difference %> days <%= @name %> !
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div class="container">
+        
+        <% if @month.to_i == @month_now && @date.to_i == @day %>
+          <img src="/image/giphy.gif" width="300px">
+          <h1 class="result">Happy Birthday <%= @name %>!</h1>
+        <% else %>
+          <img src="/image/1giphy.gif" width="300px">
+          <h1 class="result">
+            Your birthday will be in <%= @difference %> 
+            <%= @difference > 1 ? "days" : "day" %> <%= @name %>!
+          </h1>
+        <% end %>
+    </div>
+
+  </body>
+
+</html>
